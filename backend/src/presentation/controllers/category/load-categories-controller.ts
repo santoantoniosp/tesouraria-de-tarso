@@ -17,7 +17,7 @@ export class LoadCategoriesController implements Controller {
     if (!member)
       return notFound()
 
-    const categories = await this.loadCategories.loadAll(member.communityId)
+    const categories = await this.loadCategories.loadAll(member.community.id)
 
     return ok(categories)
   }

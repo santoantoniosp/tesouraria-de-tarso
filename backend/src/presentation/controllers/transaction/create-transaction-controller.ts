@@ -25,7 +25,7 @@ export class CreateTransactionController implements Controller {
       value,
       date,
       type,
-      communityId: member.communityId,
+      communityId: member.community.id,
       memberId: member.id
     })
 

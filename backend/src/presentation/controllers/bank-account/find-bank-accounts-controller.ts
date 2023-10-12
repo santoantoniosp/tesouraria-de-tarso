@@ -17,7 +17,7 @@ export class FindBankAccountsController implements Controller {
     if (!member)
       return notFound()
 
-    const bankAccounts = await this.loadBankAccounts.load(member.communityId)
+    const bankAccounts = await this.loadBankAccounts.load(member.community.id)
 
     const bankAccountsWithCurrentBalance = bankAccounts.map(({ transactions, ...bankAccount }) => {
       const totalTransactions = transactions.reduce(

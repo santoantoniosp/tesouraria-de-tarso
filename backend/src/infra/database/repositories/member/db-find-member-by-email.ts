@@ -7,6 +7,14 @@ export class DbFindMemberByEmail implements FindMemberByEmail {
     return prismaClient.member.findUnique({
       where: {
         email
+      },
+      include: {
+        community: {
+          select: {
+            id: true,
+            name: true
+          }
+        }
       }
     })
   }

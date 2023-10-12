@@ -10,6 +10,14 @@ export class DbCreateMember implements CreateMember {
       data: {
         ...userDTO,
         password: defaultPassword,
+      },
+      include: {
+        community: {
+          select: {
+            id: true,
+            name: true
+          }
+        }
       }
     })
   }

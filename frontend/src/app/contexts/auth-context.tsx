@@ -29,22 +29,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     staleTime: Infinity
   })
 
+  const queryClient = useQueryClient()
   const signIn = useCallback((accessToken: string) => {
     localStorage.setItem(localStorageKeys.ACCESS_TOKEN, accessToken)
 
     setSignedIn(true)
-  }, [])
 
-  const queryClient = useQueryClient()
+    queryClient.invalidateQueries({ queryKey: ['bankAccounts'] })
+  }, [queryClient])
 
   const signOut = useCallback(() => {
     localStorage.removeItem(localStorageKeys.ACCESS_TOKEN);
     remove();
 
-    queryClient.invalidateQueries({ queryKey: ['bankAccounts'] })
-
     setSignedIn(false)
-  }, [remove, queryClient])
+  }, [remove])
 
   useEffect(() => {
     if (isError) {
@@ -53,6 +52,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       signOut()
     }
   }, [isError, signOut])
+
+  console.log(data)
 
   return (
     <AuthContext.Provider

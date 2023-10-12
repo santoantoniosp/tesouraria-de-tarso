@@ -19,7 +19,7 @@ export class LoadTransactionsController implements Controller {
     const { month, year, bankAccountId, type } = httpRequest.query
 
     const transactions = await this.loadTransactionsByCommunityId.loadAll(
-      member.communityId,
+      member.community.id,
       {
         year,
         month,

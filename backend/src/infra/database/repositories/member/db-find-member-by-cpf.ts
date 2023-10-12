@@ -7,6 +7,14 @@ export class DbFindMemberByCPF implements FindMemberByCPF {
     return prismaClient.member.findUnique({
       where: {
         cpf
+      },
+      include: {
+        community: {
+          select: {
+            id: true,
+            name: true
+          }
+        }
       }
     })
   }

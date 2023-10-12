@@ -37,7 +37,7 @@ export class CreateBankAccountController implements Controller {
       initialBalance,
       color,
       type,
-      communityId: member.communityId
+      communityId: member.community.id
     })
 
     return ok(bankAccount)
