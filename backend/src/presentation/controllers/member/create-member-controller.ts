@@ -19,10 +19,9 @@ export class CreateMemberController implements Controller {
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     const requiredFields = ['name', 'cpf', 'email', 'communityId']
-    for (const field of requiredFields) {
+    for (const field of requiredFields)
       if (!httpRequest.body[field])
         return badRequest({ error: `${field} is required.` })
-    }
 
     const { name, email, cpf, role, communityId } = httpRequest.body
 

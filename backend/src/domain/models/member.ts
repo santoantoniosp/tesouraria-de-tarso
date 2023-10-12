@@ -11,5 +11,9 @@ export type Member = {
   email: string;
   password: string;
   communityRole: keyof typeof CommunityRole
-  communityId: string;
+  // communityId: string;
+  community: {
+    id: string;
+    name: string;
+  }
 }

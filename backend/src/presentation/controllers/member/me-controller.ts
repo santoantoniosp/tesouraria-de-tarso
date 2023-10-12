@@ -14,8 +14,6 @@ export class MeController implements Controller {
     if (!member)
       return unauthorized()
 
-    console.log(member)
-
-    return ok(member)
+    return ok({ ...member, password: undefined })
   }
 }

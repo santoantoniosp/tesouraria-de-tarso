@@ -103,7 +103,7 @@ model Member {
   password      String
   communityRole CommunityRole @default(reader)
 
-  Community    Community     @relation(fields: [communityId], references: [id])
+  community    Community     @relation(fields: [communityId], references: [id])
   communityId  String        @map("community_id") @db.Uuid
   transactions Transaction[]
 
