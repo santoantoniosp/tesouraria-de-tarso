@@ -1,0 +1,12 @@
+{
+  "name": "tesouraria-de-tarso",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/santoantoniosp/tesouraria-de-tarso.git",
+  "author": "Ramon Nunes <ramontsdev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "cd backend/ && yarn dev",
+    "client": "cd frontend/ && yarn dev"
+  }
+}
