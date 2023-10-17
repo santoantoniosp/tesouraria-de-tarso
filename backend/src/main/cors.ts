@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from 'express';
 
 export function cors(request: Request, response: Response, next: NextFunction) {
   const allowedOrigins = [
@@ -7,7 +7,6 @@ export function cors(request: Request, response: Response, next: NextFunction) {
     'http://localhost:5173',
     'http://192.168.0.100:5173',
   ];
-
 
   const origin = request.header('origin');
   const isAllowed = allowedOrigins.includes(origin!);

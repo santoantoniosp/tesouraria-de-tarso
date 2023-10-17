@@ -1,7 +1,8 @@
-import { Router } from "express";
-import { adaptRoute } from "../adapters/express-router-adapter";
-import { makeSignInController } from "../factories/authentication/sign-in-controller-factory";
+import { Router } from 'express';
 
-export const authenticationRoutes = Router()
+import { adaptRoute } from '../adapters/express-router-adapter';
+import { makeSignInController } from '../factories/authentication/sign-in-controller-factory';
 
-authenticationRoutes.post('/sign-in', adaptRoute(makeSignInController()))
+export const authenticationRoutes = Router();
+
+authenticationRoutes.post('/sign-in', adaptRoute(makeSignInController()));
