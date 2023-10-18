@@ -9,7 +9,6 @@ import { makeUpdateTransactionController } from '../factories/transaction/update
 export const transactionsRoutes = Router();
 
 transactionsRoutes.post('/transactions', adaptRoute(makeCreateTransactionController()));
-
 transactionsRoutes.get('/transactions', adaptRoute(makeLoadTransactionsController()));
 transactionsRoutes.put('/transactions/:transactionId', adaptRoute(makeUpdateTransactionController()));
 transactionsRoutes.delete('/transactions/:transactionId', adaptRoute(makeDeleteTransactionController()));

@@ -1,9 +1,12 @@
-import { Router } from "express";
-import { adaptRoute } from "../adapters/express-router-adapter";
-import { makeCreateBankAccountController } from "../factories/bank-account/create-bank-account-controller-factory";
-import { makeFindBankAccountsController } from "../factories/bank-account/find-bank-accounts-controller-factory";
+import { Router } from 'express';
 
-export const bankAccountsRoutes = Router()
+import { adaptRoute } from '../adapters/express-router-adapter';
+import { makeCreateBankAccountController } from '../factories/bank-account/create-bank-account-controller-factory';
+import { makeFindBankAccountsController } from '../factories/bank-account/find-bank-accounts-controller-factory';
+import { makeUpdateBankAccount } from '../factories/bank-account/update-bank-account-controller-factory';
 
-bankAccountsRoutes.post('/bank-accounts', adaptRoute(makeCreateBankAccountController()))
-bankAccountsRoutes.get('/bank-accounts', adaptRoute(makeFindBankAccountsController()))
+export const bankAccountsRoutes = Router();
+
+bankAccountsRoutes.post('/bank-accounts', adaptRoute(makeCreateBankAccountController()));
+bankAccountsRoutes.get('/bank-accounts', adaptRoute(makeFindBankAccountsController()));
+bankAccountsRoutes.put('/bank-accounts/:bankAccountId', adaptRoute(makeUpdateBankAccount()));
