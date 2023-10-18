@@ -1,9 +1,10 @@
-import { Transition } from "@headlessui/react";
-import { Spinner } from "./spinner";
+import { Transition } from '@headlessui/react';
+
+import { Spinner } from './spinner';
 
 type LaunchScreenProps = {
   isLoading: boolean;
-}
+};
 
 export function LaunchScreen({ isLoading }: LaunchScreenProps) {
   return (
@@ -18,12 +19,10 @@ export function LaunchScreen({ isLoading }: LaunchScreenProps) {
     >
       <div className="bg-teal-900 fixed top-0 left-0 w-full h-full grid place-items-center">
         <div className="flex flex-col items-center gap-4">
-          {/* <Logo className="h-10 text-white" /> */}
-          <span className="h-10 text-white text-3xl">Sta Tesouraria</span>
+          <span className="h-10 text-white text-3xl">Tesouraria de Tarso</span>
           <Spinner className="text-teal-900 fill-white" />
         </div>
       </div>
     </Transition>
-
-  )
+  );
 }
