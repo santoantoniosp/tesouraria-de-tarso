@@ -83,22 +83,14 @@
           "match": true
         }
       }
-    ]
-    /*     "max-len": [
+    ],
+    "padding-line-between-statements": [
       "error",
       {
-        "code": 120,
-        "ignoreUrls": true,
-        "ignoreStrings": true,
-        "ignoreTemplateLiterals": true,
-        "ignoreRegExpLiterals": true
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
       }
-    ] */
-    // "function-paren-newline": [
-    //   "error",
-    //   {
-    //     "minItems": 3
-    //   }
-    // ]
+    ]
   }
 }

@@ -1,13 +1,13 @@
 import { IEncrypter } from '../../../domain/use-cases/cryptography/encrypter';
 import { IFindMemberByEmail } from '../../../domain/use-cases/member/find-member-by-email';
 import { badRequest, notFound, ok, unauthorized } from '../../helpers/http-helpers';
-import { Controller } from '../../protocols/controller';
-import { EmailValidator } from '../../protocols/email-validator';
+import { IController } from '../../protocols/controller';
+import { IEmailValidator } from '../../protocols/email-validator';
 import { HttpRequest, HttpResponse } from '../../protocols/http';
 
-export class SignInController implements Controller {
+export class SignInController implements IController {
   constructor(
-    private readonly emailValidador: EmailValidator,
+    private readonly emailValidador: IEmailValidator,
     private readonly findMemberByEmail: IFindMemberByEmail,
     private readonly encrypter: IEncrypter,
   ) {}
