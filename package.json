@@ -7,6 +7,6 @@
   "license": "MIT",
   "scripts": {
     "server": "cd backend/ && yarn dev",
-    "client": "cd frontend/ && yarn dev"
+    "client": "cd frontend/ && yarn dev --host"
   }
 }
