@@ -1,5 +1,3 @@
-// import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-
 import { ExitIcon } from '@radix-ui/react-icons';
 
 import { useAuth } from '../../app/hooks/use-auth';
