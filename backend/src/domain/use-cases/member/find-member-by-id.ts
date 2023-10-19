@@ -1,5 +1,5 @@
-import { Member } from "../../models/member";
+import { Member } from '../../models/member';
 
-export interface FindMemberById {
-  findById(id: string): Promise<Member | null>
+export interface IFindMemberById {
+  findById(id: string): Promise<Member | null>;
 }

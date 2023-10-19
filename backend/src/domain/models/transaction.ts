@@ -1,4 +1,4 @@
-export type TransactionType = "INCOME" | "EXPENSE"
+export type TransactionType = 'INCOME' | 'EXPENSE';
 
 export type Transaction = {
   id: string;
@@ -10,4 +10,4 @@ export type Transaction = {
   value: number;
   date: Date;
   type: TransactionType;
-}
+};

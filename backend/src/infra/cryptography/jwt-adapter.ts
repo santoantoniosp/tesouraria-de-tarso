@@ -1,22 +1,20 @@
-import jwt from "jsonwebtoken";
-import { Decrypter } from "../../domain/use-cases/cryptography/decrypter";
+import jwt from 'jsonwebtoken';
 
-export class JwtAdapter implements Encrypter, Decrypter {
+import { IDecrypter } from '../../domain/use-cases/cryptography/decrypter';
+import { IEncrypter } from '../../domain/use-cases/cryptography/encrypter';
+
+export class JwtAdapter implements IEncrypter, IDecrypter {
   encrypt(value: string): string {
-    return jwt.sign(
-      { sub: value },
-      process.env.JWT_SECRET!,
-      {
-        expiresIn: '5d'
-      }
-    )
+    return jwt.sign({ sub: value }, process.env.JWT_SECRET!, {
+      expiresIn: '5d',
+    });
   }
 
   decrypt(token: string) {
     try {
-      return jwt.verify(token, process.env.JWT_SECRET!) as { sub: string }
+      return jwt.verify(token, process.env.JWT_SECRET!) as { sub: string };
     } catch {
-      return null
+      return null;
     }
   }
 }

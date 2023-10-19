@@ -1,7 +1,11 @@
-import { Community, CommunityDTO, CreateCommunity } from "../../../../domain/use-cases/community/create-community";
-import { prismaClient } from "../../postgres-db";
+import {
+  Community,
+  CommunityDTO,
+  ICreateCommunity,
+} from '../../../../domain/use-cases/community/create-community';
+import { prismaClient } from '../../postgres-db';
 
-export class DbCreateCommunity implements CreateCommunity {
+export class DbCreateCommunity implements ICreateCommunity {
   async create(communityDTO: CommunityDTO): Promise<Community> {
     const community = await prismaClient.community.create({
       data: {
@@ -13,7 +17,7 @@ export class DbCreateCommunity implements CreateCommunity {
             zipCode: communityDTO.address.zipCode,
             number: communityDTO.address.number,
             complement: communityDTO.address.complement,
-          }
+          },
         },
         categories: {
           createMany: {
@@ -27,15 +31,15 @@ export class DbCreateCommunity implements CreateCommunity {
               { name: 'Luz', icon: 'home', type: 'EXPENSE' },
               { name: 'Água', icon: 'home', type: 'EXPENSE' },
               { name: 'Outro', icon: 'other', type: 'EXPENSE' },
-            ]
-          }
-        }
+            ],
+          },
+        },
       },
       include: {
-        address: true
-      }
-    })
+        address: true,
+      },
+    });
 
-    return community
+    return community;
   }
 }

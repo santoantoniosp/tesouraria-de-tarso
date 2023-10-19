@@ -1,13 +1,13 @@
-import { UpdateTransaction } from '../../../domain/use-cases/transaction/update-transaction';
+import { IUpdateTransaction } from '../../../domain/use-cases/transaction/update-transaction';
 import { ok, unauthorized } from '../../helpers/http-helpers';
 import { LoadMemberFromRequest } from '../../helpers/load-member-from-request';
-import { Controller } from '../../protocols/controller';
+import { IController } from '../../protocols/controller';
 import { HttpRequest, HttpResponse } from '../../protocols/http';
 
-export class UpdateTransactionController implements Controller {
+export class UpdateTransactionController implements IController {
   constructor(
     private readonly loadMemberFromRequest: LoadMemberFromRequest,
-    private readonly updateTransaction: UpdateTransaction,
+    private readonly updateTransaction: IUpdateTransaction,
   ) {}
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {

@@ -1,5 +1,5 @@
-import { Category } from "../../models/category";
+import { Category } from '../../models/category';
 
-export interface LoadCategories {
-  loadAll(communityId: string): Promise<Category[]>
+export interface ILoadCategories {
+  loadAll(communityId: string): Promise<Category[]>;
 }

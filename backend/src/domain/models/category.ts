@@ -1,4 +1,4 @@
-import { TransactionType } from "./transaction";
+import { TransactionType } from './transaction';
 
 export type Category = {
   id: string;
@@ -6,4 +6,4 @@ export type Category = {
   name: string;
   icon: string;
   type: TransactionType;
-}
+};

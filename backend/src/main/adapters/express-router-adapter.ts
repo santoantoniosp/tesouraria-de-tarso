@@ -1,18 +1,19 @@
-import { Request, Response } from "express";
-import { Controller } from "../../presentation/protocols/controller";
-import { HttpRequest } from "../../presentation/protocols/http";
+import { Request, Response } from 'express';
 
-export function adaptRoute(controller: Controller) {
+import { IController } from '../../presentation/protocols/controller';
+import { HttpRequest } from '../../presentation/protocols/http';
+
+export function adaptRoute(controller: IController) {
   return async (request: Request, response: Response) => {
     const httpRequest: HttpRequest = {
       headers: request.headers,
       body: request.body,
       query: request.query,
-      params: request.params
-    }
+      params: request.params,
+    };
 
-    const httpResponse = await controller.handle(httpRequest)
+    const httpResponse = await controller.handle(httpRequest);
 
-    return response.status(httpResponse.statusCode).json(httpResponse.body)
-  }
+    return response.status(httpResponse.statusCode).json(httpResponse.body);
+  };
 }

@@ -1,3 +1,3 @@
-export interface DocumentValidator {
-  isValid(document: string): boolean
+export interface IDocumentValidator {
+  isValid(document: string): boolean;
 }

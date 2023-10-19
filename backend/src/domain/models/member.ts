@@ -1,7 +1,7 @@
 enum CommunityRole {
-  owner = "owner",
-  contributor = "contributor",
-  reader = "reader"
+  owner = 'owner',
+  contributor = 'contributor',
+  reader = 'reader',
 }
 
 export type Member = {
@@ -10,10 +10,10 @@ export type Member = {
   cpf: string;
   email: string;
   password: string;
-  communityRole: keyof typeof CommunityRole
+  communityRole: keyof typeof CommunityRole;
   // communityId: string;
   community: {
     id: string;
     name: string;
-  }
-}
+  };
+};

@@ -29,6 +29,10 @@
         "allowEmptyCatch": true
       }
     ],
+    "no-restricted-syntax": [
+      "off",
+      "ForOfStatement"
+    ],
     "no-useless-constructor": "off",
     "no-empty-function": [
       "error",
@@ -66,6 +70,7 @@
         "newlines-between": "always"
       }
     ],
+    "no-shadow": "off",
     "@typescript-eslint/naming-convention": [
       "error",
       {

@@ -1,10 +1,10 @@
 import { IUpdateBankAccount } from '../../../domain/use-cases/bank-account/update-bank-account';
 import { ok, unauthorized } from '../../helpers/http-helpers';
 import { LoadMemberFromRequest } from '../../helpers/load-member-from-request';
-import { Controller } from '../../protocols/controller';
+import { IController } from '../../protocols/controller';
 import { HttpRequest, HttpResponse } from '../../protocols/http';
 
-export class UpdateBankAccountController implements Controller {
+export class UpdateBankAccountController implements IController {
   constructor(
     private readonly loadRequestMember: LoadMemberFromRequest,
     private readonly updateBankAccount: IUpdateBankAccount,

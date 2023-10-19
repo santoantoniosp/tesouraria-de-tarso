@@ -1,5 +1,5 @@
-import { Community } from "./create-community";
+import { Community } from './create-community';
 
-export interface FindAllCommunities {
-  findAll(): Promise<Community[]>
+export interface IFindAllCommunities {
+  findAll(): Promise<Community[]>;
 }

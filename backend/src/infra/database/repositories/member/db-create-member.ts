@@ -1,8 +1,8 @@
-import { Member } from "../../../../domain/models/member";
-import { CreateMember, CreateMemberDTO } from "../../../../domain/use-cases/member/create-member";
-import { prismaClient } from "../../postgres-db";
+import { Member } from '../../../../domain/models/member';
+import { CreateMemberDTO, ICreateMember } from '../../../../domain/use-cases/member/create-member';
+import { prismaClient } from '../../postgres-db';
 
-export class DbCreateMember implements CreateMember {
+export class DbCreateMember implements ICreateMember {
   create(userDTO: CreateMemberDTO): Promise<Member> {
     const defaultPassword = 'admin@123';
 
@@ -15,10 +15,10 @@ export class DbCreateMember implements CreateMember {
         community: {
           select: {
             id: true,
-            name: true
-          }
-        }
-      }
-    })
+            name: true,
+          },
+        },
+      },
+    });
   }
 }

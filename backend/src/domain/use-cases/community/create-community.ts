@@ -7,8 +7,8 @@ export type Community = {
     zipCode: string;
     number: string;
     complement: string | null;
-  } | null
-}
+  } | null;
+};
 
 export type CommunityDTO = {
   name: string;
@@ -18,9 +18,9 @@ export type CommunityDTO = {
     zipCode: string;
     number: string;
     complement: string | null;
-  }
-}
+  };
+};
 
-export interface CreateCommunity {
-  create(communityDTO: CommunityDTO): Promise<Community>
+export interface ICreateCommunity {
+  create(communityDTO: CommunityDTO): Promise<Community>;
 }

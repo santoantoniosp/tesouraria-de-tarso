@@ -1,3 +1,3 @@
-interface Encrypter {
+export interface IEncrypter {
   encrypt(value: string): string;
 }

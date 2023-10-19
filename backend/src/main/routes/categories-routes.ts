@@ -1,7 +1,8 @@
-import { Router } from "express";
-import { adaptRoute } from "../adapters/express-router-adapter";
-import { makeLoadCategoriesController } from "../factories/category/load-categories-controller-factory";
+import { Router } from 'express';
 
-export const categoriesRoutes = Router()
+import { adaptRoute } from '../adapters/express-router-adapter';
+import { makeLoadCategoriesController } from '../factories/category/load-categories-controller-factory';
 
-categoriesRoutes.get('/categories', adaptRoute(makeLoadCategoriesController()))
+export const categoriesRoutes = Router();
+
+categoriesRoutes.get('/categories', adaptRoute(makeLoadCategoriesController()));

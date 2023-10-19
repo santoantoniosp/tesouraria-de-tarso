@@ -1,10 +1,10 @@
 import { IDeleteBankAccount } from '../../../domain/use-cases/bank-account/delete-bank-account';
 import { noContent, unauthorized } from '../../helpers/http-helpers';
 import { LoadMemberFromRequest } from '../../helpers/load-member-from-request';
-import { Controller } from '../../protocols/controller';
+import { IController } from '../../protocols/controller';
 import { HttpRequest, HttpResponse } from '../../protocols/http';
 
-export class DeleteBankAccountController implements Controller {
+export class DeleteBankAccountController implements IController {
   constructor(
     private readonly loadRequestMember: LoadMemberFromRequest,
     private readonly deleteBankAccount: IDeleteBankAccount,

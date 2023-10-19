@@ -1,5 +1,5 @@
-import { Member } from "../../models/member";
+import { Member } from '../../models/member';
 
-export interface FindMemberByEmail {
-  findByEmail(email: string): Promise<Member | null>
+export interface IFindMemberByEmail {
+  findByEmail(email: string): Promise<Member | null>;
 }

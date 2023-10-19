@@ -1,13 +1,13 @@
-import { LoadTransactionsByCommunityId } from '../../../domain/use-cases/transaction/load-transactions-by-community-id';
+import { ILoadTransactionsByCommunityId } from '../../../domain/use-cases/transaction/load-transactions-by-community-id';
 import { notFound, ok } from '../../helpers/http-helpers';
 import { LoadMemberFromRequest } from '../../helpers/load-member-from-request';
-import { Controller } from '../../protocols/controller';
+import { IController } from '../../protocols/controller';
 import { HttpRequest, HttpResponse } from '../../protocols/http';
 
-export class LoadTransactionsController implements Controller {
+export class LoadTransactionsController implements IController {
   constructor(
     private readonly loadMemberFromRequest: LoadMemberFromRequest,
-    private readonly loadTransactionsByCommunityId: LoadTransactionsByCommunityId,
+    private readonly loadTransactionsByCommunityId: ILoadTransactionsByCommunityId,
   ) {}
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {

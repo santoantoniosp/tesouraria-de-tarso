@@ -1,10 +1,10 @@
 import { IDeleteTransaction } from '../../../domain/use-cases/transaction/delete-transaction';
 import { noContent, unauthorized } from '../../helpers/http-helpers';
 import { LoadMemberFromRequest } from '../../helpers/load-member-from-request';
-import { Controller } from '../../protocols/controller';
+import { IController } from '../../protocols/controller';
 import { HttpRequest, HttpResponse } from '../../protocols/http';
 
-export class DeleteTransactionController implements Controller {
+export class DeleteTransactionController implements IController {
   constructor(
     private readonly loadRequestMember: LoadMemberFromRequest,
     private readonly deleteTransaction: IDeleteTransaction,

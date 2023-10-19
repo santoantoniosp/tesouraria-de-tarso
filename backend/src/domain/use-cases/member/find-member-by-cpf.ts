@@ -1,5 +1,5 @@
-import { Member } from "../../models/member";
+import { Member } from '../../models/member';
 
-export interface FindMemberByCPF {
-  findByCPF(cpf: string): Promise<Member | null>
+export interface IFindMemberByCPF {
+  findByCPF(cpf: string): Promise<Member | null>;
 }

@@ -1,23 +1,21 @@
-import { CreateCommunity } from "../../../domain/use-cases/community/create-community";
-import { Decrypter } from "../../../domain/use-cases/cryptography/decrypter";
-import { FindMemberById } from "../../../domain/use-cases/member/find-member-by-id";
-import { badRequest, ok } from "../../helpers/http-helpers";
-import { Controller } from "../../protocols/controller";
-import { HttpRequest, HttpResponse } from "../../protocols/http";
+import { ICreateCommunity } from '../../../domain/use-cases/community/create-community';
+import { IDecrypter } from '../../../domain/use-cases/cryptography/decrypter';
+import { IFindMemberById } from '../../../domain/use-cases/member/find-member-by-id';
+import { badRequest, ok } from '../../helpers/http-helpers';
+import { IController } from '../../protocols/controller';
+import { HttpRequest, HttpResponse } from '../../protocols/http';
 
-export class CreateCommunityController implements Controller {
-
+export class CreateCommunityController implements IController {
   constructor(
-    private readonly createCommunity: CreateCommunity,
-    private readonly decrypter: Decrypter,
-    private readonly findMemberById: FindMemberById
+    private readonly createCommunity: ICreateCommunity,
+    private readonly decrypter: IDecrypter,
+    private readonly findMemberById: IFindMemberById,
   ) {}
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
-    const requiredFields = ['name', 'address']
+    const requiredFields = ['name', 'address'];
     for (const field of requiredFields) {
-      if (!httpRequest.body[field])
-        return badRequest({ error: `${field} is required.` })
+      if (!httpRequest.body[field]) return badRequest({ error: `${field} is required.` });
     }
 
     /* const token = this.extractTokenFromHeader(httpRequest)
@@ -35,14 +33,14 @@ export class CreateCommunityController implements Controller {
     if (member.communityRole !== 'owner')
       return unauthorized({ error: 'Sem permissão para essa ação.' }) */
 
-    const { name, address } = httpRequest.body
+    const { name, address } = httpRequest.body;
 
     const community = await this.createCommunity.create({
       name,
-      address
-    })
+      address,
+    });
 
-    return ok(community)
+    return ok(community);
   }
 
   private extractTokenFromHeader(httpRequest: HttpRequest): string | undefined {

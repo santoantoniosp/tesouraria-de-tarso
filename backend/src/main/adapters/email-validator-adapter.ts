@@ -1,7 +1,8 @@
-import { isValidEmail } from "@brazilian-utils/brazilian-utils";
-import { EmailValidator } from "../../presentation/protocols/email-validator";
+import { isValidEmail } from '@brazilian-utils/brazilian-utils';
 
-export class EmailValidatorAdapter implements EmailValidator {
+import { IEmailValidator } from '../../presentation/protocols/email-validator';
+
+export class EmailValidatorAdapter implements IEmailValidator {
   isValid(email: string): boolean {
     return isValidEmail(email);
   }

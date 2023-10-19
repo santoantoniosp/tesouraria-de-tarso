@@ -1,7 +1,8 @@
-import { isValidCPF } from "@brazilian-utils/brazilian-utils";
-import { DocumentValidator } from "../../presentation/protocols/document-validator";
+import { isValidCPF } from '@brazilian-utils/brazilian-utils';
 
-export class CPFValidatorAdapter implements DocumentValidator {
+import { IDocumentValidator } from '../../presentation/protocols/document-validator';
+
+export class CPFValidatorAdapter implements IDocumentValidator {
   isValid(document: string): boolean {
     return isValidCPF(document);
   }
