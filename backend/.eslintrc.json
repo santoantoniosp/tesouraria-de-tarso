@@ -23,6 +23,7 @@
   },
   "rules": {
     "prettier/prettier": "error",
+    "no-shadow": "off",
     "no-empty": [
       "error",
       {
@@ -70,7 +71,6 @@
         "newlines-between": "always"
       }
     ],
-    "no-shadow": "off",
     "@typescript-eslint/naming-convention": [
       "error",
       {
